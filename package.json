@@ -1,0 +1,24 @@
+{
+  "name": "social-network-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cnnrclvll/Social-Network-API.git"
+  },
+  "author": "https://github.com/cnnrclvll/",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cnnrclvll/Social-Network-API/issues"
+  },
+  "homepage": "https://github.com/cnnrclvll/Social-Network-API#readme",
+  "dependencies": {
+    "express": "^4.19.2",
+    "mongoose": "^8.4.4"
+  }
+}
