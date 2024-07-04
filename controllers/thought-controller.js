@@ -8,7 +8,7 @@ const thoughtControl = {
   // --- FIND ALL --- //
   // ---------------- //
   // sorted by most recent
-  async findAllThoughts(req, res) {
+  async findAllThought(req, res) {
     try {
       const thoughtData = await Thought.find()
         .sort({ createdAt: -1 });
@@ -170,7 +170,7 @@ const thoughtControl = {
       }
 
       res.json(thoughtData);
-      
+
     } catch (err) {
       console.log(err);
       res.status(500).json(err);
