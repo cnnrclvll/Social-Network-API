@@ -61,6 +61,7 @@ const thoughtControl = {
       }
 
       res.json({ message: 'Thought successfully created.' });
+
     } catch (err) {
       console.log(err);
       res.status(500).json(err);
@@ -116,6 +117,7 @@ const thoughtControl = {
       }
 
       res.json({ message: 'Thought deleted successfully.' });
+
     } catch (err) {
       console.log(err);
       res.status(500).json(err);
@@ -141,6 +143,7 @@ const thoughtControl = {
       }
 
       res.json(thoughtData);
+
     } catch (err) {
       console.log(err);
       res.status(500).json(err);
@@ -167,6 +170,7 @@ const thoughtControl = {
       }
 
       res.json(thoughtData);
+      
     } catch (err) {
       console.log(err);
       res.status(500).json(err);
