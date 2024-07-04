@@ -154,19 +154,19 @@ const thoughtControl = {
   // match reactionId from req params
   // pull reaction from thought's reactions array
   // validate data and log result
-  async removeReaction(req, res) {
+  async offReaction(req, res) {
     try {
-      const dbThoughtData = await Thought.findOneAndUpdate(
+      const thoughtData = await Thought.findOneAndUpdate(
         { _id: req.params.thoughtId },
         { $pull: { reactions: { reactionId: req.params.reactionId } } },
         { runValidators: true, new: true }
       );
 
-      if (!dbThoughtData) {
+      if (!thoughtData) {
         return res.status(404).json({ message: 'Thought not found.' });
       }
 
-      res.json(dbThoughtData);
+      res.json(thoughtData);
     } catch (err) {
       console.log(err);
       res.status(500).json(err);
