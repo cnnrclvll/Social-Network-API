@@ -5,8 +5,8 @@ const {
   newThought,
   editThought,
   deleteThought,
-  onReaction,
-  offReaction,
+  newReaction: onReaction,
+  deleteReaction: offReaction,
 } = require('../../controllers/thought-controller');
 // require express rotuer
 // thought control functions

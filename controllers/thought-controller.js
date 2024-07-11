@@ -74,20 +74,22 @@ const thoughtControl = {
   // set req body to effectively update the data entry
   // validate and log data
   async editThought(req, res) {
-    const thoughtData = await Thought.findOneAndUpdate(
-      { _id: req.params.thoughtId }, 
-      { $set: req.body }, 
-      { runValidators: true, new: true }
-    );
+    try {
+      const thoughtData = await Thought.findOneAndUpdate(
+        { _id: req.params.thoughtId }, 
+        { $set: req.body }, 
+        { runValidators: true, new: true }
+      );
 
-    if (!thoughtData) {
-      return res.status(404).json({ message: 'Thought not found.' });
+      if (!thoughtData) {
+        return res.status(404).json({ message: 'Thought not found.' });
+      }
+
+      res.json(thoughtData);
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
     }
-
-    res.json(thoughtData);
-
-    console.log(err);
-    res.status(500).json(err);
   },
   // ---------------------- //
   // --- DELETE THOUGHT --- //
@@ -98,7 +100,7 @@ const thoughtControl = {
   // log result
   async deleteThought(req, res) {
     try {
-      const thoughtData = await Thought.findOneAndRemove({ 
+      const thoughtData = await Thought.findOneAndDelete({ 
         _id: req.params.thoughtId 
       })
 
@@ -123,14 +125,14 @@ const thoughtControl = {
       res.status(500).json(err);
     }
   },
-  // ----------------------- //
-  // --- TOGGLE REACTION --- //
-  // --------- ON ---------- //
-  // ----------------------- //
+  // -------------------- //
+  // --- NEW REACTION --- //
+  // -------------------- //
+  // -------------------- //
   // match thoughtId from req params
   // add req.body to thought's reactions array
   // validate data and log result
-  async onReaction(req, res) {
+  async newReaction(req, res) {
     try {
       const thoughtData = await Thought.findOneAndUpdate(
         { _id: req.params.thoughtId },
@@ -150,14 +152,14 @@ const thoughtControl = {
     }
   },
   // ----------------------- //
-  // --- TOGGLE REACTION --- //
-  // --------- OFF --------- //
+  // --- DELETE REACTION --- //
+  // ----------------------- //
   // ----------------------- //
   // match thoughtId from req params
   // match reactionId from req params
   // pull reaction from thought's reactions array
   // validate data and log result
-  async offReaction(req, res) {
+  async deleteReaction(req, res) {
     try {
       const thoughtData = await Thought.findOneAndUpdate(
         { _id: req.params.thoughtId },
