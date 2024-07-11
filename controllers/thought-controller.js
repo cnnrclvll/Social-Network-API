@@ -123,14 +123,14 @@ const thoughtControl = {
       res.status(500).json(err);
     }
   },
-  // ----------------------- //
-  // --- TOGGLE REACTION --- //
-  // --------- ON ---------- //
-  // ----------------------- //
+  // -------------------- //
+  // --- NEW REACTION --- //
+  // -------------------- //
+  // -------------------- //
   // match thoughtId from req params
   // add req.body to thought's reactions array
   // validate data and log result
-  async onReaction(req, res) {
+  async newReaction(req, res) {
     try {
       const thoughtData = await Thought.findOneAndUpdate(
         { _id: req.params.thoughtId },
@@ -150,14 +150,14 @@ const thoughtControl = {
     }
   },
   // ----------------------- //
-  // --- TOGGLE REACTION --- //
-  // --------- OFF --------- //
+  // --- DELETE REACTION --- //
+  // ----------------------- //
   // ----------------------- //
   // match thoughtId from req params
   // match reactionId from req params
   // pull reaction from thought's reactions array
   // validate data and log result
-  async offReaction(req, res) {
+  async deleteReaction(req, res) {
     try {
       const thoughtData = await Thought.findOneAndUpdate(
         { _id: req.params.thoughtId },

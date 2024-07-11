@@ -1,0 +1,30 @@
+[
+  {
+      "thoughtText": "This is my first thought!",
+      "username": "john_doe",
+      "reactions": [
+          {
+              "reactionBody": "Awesome!",
+              "username": "jane_smith"
+          },
+          {
+              "reactionBody": "Interesting!",
+              "username": "john_doe"
+          }
+      ]
+  },
+  {
+      "thoughtText": "Feeling excited about this project!",
+      "username": "jane_smith",
+      "reactions": [
+          {
+              "reactionBody": "Awesome!",
+              "username": "jane_smith"
+          },
+          {
+              "reactionBody": "Interesting!",
+              "username": "john_doe"
+          }
+      ]
+  }
+]
